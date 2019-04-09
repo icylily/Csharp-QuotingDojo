@@ -1,0 +1,10 @@
+<h1>Here are the awesome quotes!</h1>
+<ul>
+@foreach(var quote in ViewBag.Quotes)
+{
+    <!-- Remember, these are Dictionaries - so you must use user["KeyName"] to access the values within -->
+    <li>@quote["quote"] </li>
+     <p>          - @quote["name"] at @quote["created_at"] </p>
+    <hr>
+}
+</ul>
