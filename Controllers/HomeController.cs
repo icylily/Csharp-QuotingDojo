@@ -32,6 +32,9 @@ namespace QuotingDojo.Controllers
             {
                 string query = $"INSERT INTO quotes (name, quote) VALUES ('{currentQuote.Name}', '{currentQuote.Quotecomment}')";
                 DbConnector.Execute(query);
+                List<Dictionary<string, object>> AllQuotes = DbConnector.Query("SELECT * FROM quotes order by created_at;");
+                // To provide this data, we could use ViewBag or a View Model.  ViewBag shown here:
+                ViewBag.Quotes = AllQuotes;
                 return View("Result");
             }
 
